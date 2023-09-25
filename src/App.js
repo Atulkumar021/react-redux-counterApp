@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import Accout from './components/Accout'
+import Bonus from './components/Bonus'
+import { useSelector } from 'react-redux'
+const App = () => {
+  const mystate = useSelector((state) => state.changetheNumber.counter);
+  const bonusdata=useSelector((state)=> state.getbonusdata.counter)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <div className='Appname'>App</div>
+    <div className='componentname'>Current Amount :{mystate}</div>
+    <div className='componentname'>Total Bonus :{bonusdata}</div>
+    <Accout/>
+    <Bonus/>
+
+    </>
+    
+  )
 }
 
-export default App;
+export default App
